@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>上下高度固定，中间自适应</title>
+  <style>
+    html *{
+      padding: 0;
+      margin:0;
+    }
+    html,body{
+      height: 100%;
+    }
+    .layout div{
+      min-width:150px;
+    }
+    .layout{
+      display: inline-block;
+      overflow: hidden;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- position 布局 -->
+  <section class="layout position">
+    <style>
+      .layout.position article div{
+        position: absolute;
+      }
+      .layout.position .top,.bottom{
+        height: 100px;
+      }
+      .layout.position .top{
+        top:0;
+        background-color: red;
+      }
+      .layout.position .bottom{
+        bottom: 0;
+        background-color: blue;
+      }
+      .layout.position .middle{
+        top:100px;
+        bottom: 100px;
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="top">上</div>
+      <div class="middle">
+        <h3>position 布局</h3>
+      </div>
+      <div class="bottom">下</div>
+    </article>
+  </section>
+
+  <!-- flex 布局 -->
+  <section class="layout flex">
+    <style>
+      .layout.flex{
+        margin-left:150px;
+        height: 100%;
+      }
+      .layout.flex article{
+        width:150px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .layout.flex .top{
+        height: 100px;
+        background-color: red;
+      }
+      .layout.flex .bottom{
+        height: 100px;
+        background-color: blue;
+      }
+      .layout.flex .middle{
+        flex: 1;
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="top">上</div>
+      <div class="middle">
+        <h3>flex 布局</h3>
+      </div>
+      <div class="bottom">下</div>
+    </article>
+  </section>
+
+  <!-- table 布局 -->
+  <section class="layout table">
+    <style>
+      .layout.table{
+        height: 100%;
+      }
+      .layout.table article{
+        display: table;
+        width: 150px;
+        height: 100%;
+      }
+      .layout.table article div{
+        display: table-row;
+      }
+      .layout.table .top{
+        height: 100px;
+        background: red;
+      }
+      .layout.table .bottom{
+        height: 100px;
+        background-color: blue;
+      }
+      .layout.table .middle{
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <!-- div 中必须有内容才能正常显示 -->
+      <div class="top">上</div>
+      <div class="middle">
+        <h3>table 布局</h3>
+      </div>
+      <div class="bottom">下</div>
+    </article>
+  </section>
+
+  <!-- grid 布局 -->
+  <section class="layout grid">
+    <style>
+      .layout.grid{
+        height: 100%;
+      }
+      .layout.grid article{
+        height: 100%;
+        display: grid;
+        grid-template-columns: 150px;
+        grid-template-rows: 100px auto 100px;
+      }
+      .layout.grid .top{
+        background-color: red;
+      }
+      .layout.grid .middle{
+        background-color: yellow;
+      }
+      .layout.grid .bottom{
+        background-color: blue;
+      }
+    </style>
+    <article>
+      <div class="top">上</div>
+      <div class="middle">
+        <h3>grid 布局</h3>
+      </div>
+      <div class="bottom">下</div>
+    </article>
+  </section>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>左侧宽度固定，右侧自适应</title>
+  <style>
+    html *{
+      margin:0;
+      padding: 0;
+    }
+    html,body{
+      width:100%;
+    }
+    .layout{
+      margin-bottom: 20px;
+    }
+    .layout div{
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 双 inline-block+calc -->
+  <section class="layout double-inline-block">
+    <style>
+      .layout.double-inline-block article{
+        /* 消除div之间的空格 */
+        font-size: 0;
+      }
+      .layout.double-inline-block article>div{
+         display: inline-block;
+         font-size: 16px;
+         vertical-align: top;
+      }
+      .layout.double-inline-block .left{
+        width:300px;
+        background-color: red;
+      }
+      .layout.double-inline-block .right{
+        width:calc(100% - 300px);
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h3>双inline-block + calc</h3>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 双 float+calc -->
+  <section class="layout double-float">
+    <style>
+      .layout.double-float article::after{
+        width: 0;
+        height: 0;
+        content: '';
+        display: block;
+        visibility: hidden;
+        clear: both;
+      }
+      .layout.double-float article>div{
+        float: left;
+      }
+      .layout.double-float .left{
+        width: 300px;
+        background-color: red;
+      }
+      .layout.double-float .right{
+        width:calc(100% - 300px);
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h2>双float + calc</h2>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- float+margin-left -->
+  <section class="layout float-margin">
+    <style>
+      .layout.float-margin article::after{
+        width: 0;
+        height: 0;
+        content: '';
+        display: block;
+        visibility: hidden;
+        clear: both;
+      }
+      .layout.float-margin .left{
+        width:300px;
+        float: left;
+        background-color: red;
+      }
+      .layout.float-margin .right{
+        margin-left: 300px;
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h2>float+margin-left</h2>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- absolute+margin-left -->
+  <section class="layout absolute-margin">
+    <style>
+      .layout.absolute-margin .left{
+        width:300px;
+        position: absolute;
+        background-color: red;
+      }
+      .layout.absolute-margin .right{
+        margin-left: 300px;
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h2>absolute+margin-left</h2>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- float+BFC -->
+  <section class="layout float-bfc">
+    <style>
+      .layout.float-bfc .left{
+        width:300px;
+        float: left;
+        background-color: red;
+      }
+      .layout.float-bfc .right{
+        overflow: auto;
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h2>float+BFC</h2>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- flex -->
+  <section class="layout flex">
+    <style>
+      .layout.flex article{
+        display: flex;
+        align-items: flex-start;
+      }
+      .layout.flex .left{
+        width: 300px;
+        background-color: red;
+      }
+      .layout.flex .right{
+        flex:1;
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h2>flex</h2>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- grid -->
+  <section class="layout grid">
+    <style>
+      .layout.grid article{
+        display: grid;
+        grid-template-rows: 100px;
+        grid-template-columns: 300px 1fr;
+        align-items: start;
+      }
+      .layout.grid .left{
+        background-color: red;
+      }
+      .layout.grid .right{
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h2>grid</h2>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- table 布局 -->
+  <section class="layout table">
+    <style>
+      .layout.table{
+        margin-top:100px;
+      }
+      .layout.table article{
+        width: 100%;
+        display: table;
+      }
+      .layout.table article>div{
+        display: table-cell;
+      }
+      .layout.table .left{
+        width: 300px;
+        background-color: red;
+      }
+      .layout.table .right{
+        background-color: yellow;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right">
+        <h2>table</h2>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+        <p>这是两栏布局的浮动解决方案</p>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

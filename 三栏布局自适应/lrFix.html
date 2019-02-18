@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Layout</title>
+  <title>左右宽度固定，中间自适应</title>
   <style>
       html *{
         padding: 0;
@@ -56,7 +56,6 @@
         <p>这是三栏布局的浮动解决方案</p>
         <p>这是三栏布局的浮动解决方案</p>
       </div>
-      <!-- <div class="right"></div> -->
     </article>
   </section>
 
@@ -90,8 +89,7 @@
         <p>这是三栏布局的浮动解决方案</p>
         <p>这是三栏布局的浮动解决方案</p>
         <p>这是三栏布局的浮动解决方案</p>
-        <p>这是三栏布局的浮动解决方案</p>
-        <p>这是三栏布局的浮动解决方案</p>
+       
       </div>
       <div class="right"></div>
     </article>
@@ -177,7 +175,7 @@
     <style>
       .layout.grid article{
         display: grid;
-        grid-template-rows: 100px;
+        /* grid-template-rows: 100px; */
         grid-template-columns: 300px auto 300px;
       }
       .layout.grid .left{
@@ -237,6 +235,7 @@
       }
       .layout.grail .right{
         margin-right: -300px;
+        background-color: blue;
       }
     </style>
     <article class="container">

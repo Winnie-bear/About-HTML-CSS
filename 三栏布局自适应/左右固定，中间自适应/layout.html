@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Layout</title>
+  <style>
+      html *{
+        padding: 0;
+        margin:0;
+      }
+      .layout div{
+        min-height: 100px;
+      }
+      .layout{
+        margin-bottom: 20px;
+      }
+  </style>
+</head>
+<body>
+  <!-- 浮动布局 -->
+  <section class="layout float">
+    <style>
+      .layout.float::after{
+        width: 0;
+        height: 0;
+        content: '';
+        display: block;
+        visibility: hidden;
+        clear: both;
+       }
+       .layout.float .left{
+         width:300px;
+         float: left;
+         background-color: red;
+       }
+       .layout.float .center{
+         background-color: yellow;
+       }
+       .layout.float .right{
+         width:300px;
+         float: right;
+         background-color: blue;
+       }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center">
+        <h2>浮动解决方案</h2>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+      </div>
+      <!-- <div class="right"></div> -->
+    </article>
+  </section>
+
+  <!-- 绝对布局-->
+  <section class="layout absolute"> 
+    <style>
+      .layout.absolute article div{
+        position: absolute;
+      }
+      .layout.absolute .left{
+        left:0;
+        width: 300px;
+        background-color: red;
+      }
+      .layout.absolute .center{
+        left: 300px;
+        right: 300px;
+        background-color: yellow;
+      }
+      .layout.absolute .right{
+        right: 0px;
+        width:300px;
+        background-color: blue;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="center">
+        <h2>绝对定位解决方案</h2>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+  <!-- flex 布局 -->
+  <section class="layout flex">
+    <style>
+      .layout.flex{
+        margin-top:140px;
+      }
+       .layout.flex article{
+         display: flex
+       }
+       .layout .left{
+         width:300px;
+         background-color: red;
+       }
+       .layout .center{
+         flex:1 1 0%;
+         background-color: yellow;
+       }
+       .layout .right{
+         width:300px;
+         background-color: blue;
+       }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="center">
+        <h2>flex 布局解决方案</h2>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+  <!-- 表格布局 -->
+  <section class="layout table">
+    <style>
+      .layout.table article{
+        display: table;
+        width:100%;
+        height: 100px;
+      }
+      .layout.table article>div{
+        display: table-cell;
+      }
+      .layout.table .left{
+        width:300px;
+        background-color: red;
+      }
+      .layout.table .center{
+        background-color: yellow;
+      }
+      .layout.table .right{
+        width:300px;
+        background-color: blue;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="center">
+        <h2>table 布局解决方案</h2>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+  <!-- grid 布局 -->
+  <section class="layout grid">
+    <style>
+      .layout.grid article{
+        display: grid;
+        grid-template-rows: 100px;
+        grid-template-columns: 300px auto 300px;
+      }
+      .layout.grid .left{
+        background-color: red;
+      }
+      .layout.grid .center{
+        background-color: yellow;
+      }
+      .layout.grid .right{
+        background-color: blue;
+      }
+    </style>
+    <article>
+      <div class="left"></div>
+      <div class="center">
+        <h2>grid 布局解决方案</h2>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+  <!-- 圣杯布局  -->
+  <section class="layout grail">
+    <style>
+      .layout.grail::after{
+        width: 0;
+        height: 0;
+        content: '';
+        display: block;
+        visibility: hidden;
+        clear: both;
+      }
+      .layout.grail .container{
+        padding: 0px 300px;
+      }
+      .layout.grail .float{
+        float: left;
+      }
+      .layout.grail .container .center{
+        width:100%;
+        background-color: yellow;
+      }
+      .layout.grail .left,.right{
+        width:300px;
+      }
+      .layout.grail .left{
+        margin-left: -100%;
+        position: relative;
+        right:300px;
+        background-color: red;
+      }
+      .layout.grail .right{
+        margin-right: -300px;
+      }
+    </style>
+    <article class="container">
+      <div class="center float">
+        <h2>圣杯布局解决方案</h2>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+        <p>这是三栏布局的浮动解决方案</p>
+      </div>
+      <div class="left float"></div>
+      <div class="right float"></div>
+    </article>
+  </section>
+
+  <!-- 双飞翼布局 -->
+  <section class="layout wing">
+     <style>
+       .layout.wing::after{
+          width: 0;
+          height:0;
+          content: '';
+          display: block;
+          visibility: hidden;
+          clear:both;
+       }
+       .layout.wing .float{
+         float: left;
+       }
+       .layout.wing .container{
+         width:100%;
+       }
+       .layout.wing .center{
+         margin: 0px 300px;
+         background-color: yellow;
+       }
+       .layout.wing .left{
+         width:300px;
+         background-color: red;
+         margin-left: -100%;
+       }
+       .layout.wing .right{
+         width:300px;
+         background-color: blue;
+         margin-left:-300px;
+       }
+     </style>
+      <article class="container float">
+       <div class="center">
+         <h2>双飞翼布局解决方案</h2>
+         <p>这是三栏布局的浮动解决方案</p>
+         <p>这是三栏布局的浮动解决方案</p>
+         <p>这是三栏布局的浮动解决方案</p>
+         <p>这是三栏布局的浮动解决方案</p>
+         <p>这是三栏布局的浮动解决方案</p>
+         <p>这是三栏布局的浮动解决方案</p>
+       </div>
+      </article>
+      <div class="left float"></div>
+      <div class="right float"></div>
+  </section>
+</body>
+</html>
